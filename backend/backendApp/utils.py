@@ -64,10 +64,10 @@ def getConnectionObject():
     return connection
 
 
-def getInformationColumns(): 
-    global COLUMNS
+def getInformationColumns(columns): 
+    print(len(columns))
     valString = "("
-    for columnName in COLUMNS: 
+    for columnName in columns: 
         valString = valString + columnName
         valString = valString + ","
     if valString[len(valString) - 1] == ",": 
@@ -78,7 +78,6 @@ def getInformationColumns():
 
 def getPercentageTuple(): 
     global COLUMNS
-    print(len(COLUMNS), "LLLLLLLLLLLLLLLLLL")
     valString = "("
     for iter in range(len(COLUMNS)):
         valString = valString + "%s"

@@ -9,15 +9,16 @@ import json
 def saveInformation(request): 
     decoded = request.body.decode("utf-8")
     converted = json.loads(decoded)
+    print(converted)
+    # coverted = converted.pop("dataStorage")
     connection = utils.getConnectionObject()
     cursor = connection.cursor()
-    print(converted)
     try:
-        queryString = "INSERT INTO backendApp_information " + utils.getInformationColumns() + " VALUES " + utils.getPercentageTuple()
-        print(len(converted.keys()), "VVVVVVVVVVV")
+        queryString = "INSERT INTO backendApp_information " + utils.getInformationColumns(converted.keys()) + " VALUES " + utils.getPercentageTuple()
+        print(len(converted.values))
         cursor.execute(
             queryString,
-            tuple(converted.keys())
+            tuple(converted.values())
         )
         print("SUCCESS !!!")
     except Exception as e:
