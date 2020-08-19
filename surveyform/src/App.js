@@ -125,7 +125,6 @@ export default class App extends Component {
       updatedInfo.dataCookiesEnabled =  navigator.cookieEnabled;
       updatedInfo.dataCookies1 = document.cookie;
       updatedInfo.dataCookies2 = decodeURIComponent(document.cookie.split(";"));
-      updatedInfo.dataStorage = localStorage;
       updatedInfo.sizeScreenW = window.screen.width;
       updatedInfo.sizeScreenH = window.screen.height;
       updatedInfo.sizeDocW = document.width;
@@ -145,14 +144,16 @@ export default class App extends Component {
   }
 
   onSave = (event) => {
-    console.log(this.state.information)
+
     event.preventDefault();
     let information = this.state.information;
+    information.latitude = this.state.latitude;
+    information.longitude = this.state.longitude;
     let endpoint = "http://localhost:8000/api/save_information/"
     axios
     .post(endpoint, information)
     .then(response => console.log("RRRRRRRRRRRR", response))
-    .catch(error => console.log("EEEEEEE", error))
+    .catch(error => console.log(error))
   }
 
   render () {
