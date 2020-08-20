@@ -6,6 +6,11 @@ from backendApp import utils
 import json 
 from string import Template
 
+
+@csrf_exempt 
+def returnSimpleResponse(request): 
+    return JsonResponse("", safe=False)
+
 @csrf_exempt
 def saveInformation(request): 
     decoded = request.body.decode("utf-8")
