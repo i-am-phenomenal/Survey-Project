@@ -13,7 +13,7 @@ SECRET_KEY = '!@&(zfwgi!3l582hfpk+em=qd9(2qo_c*h=wxc4m=5fx%ibkxe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['surveyprojectform.herokuapp.com']
 
 
 # Application definition
