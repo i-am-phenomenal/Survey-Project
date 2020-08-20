@@ -113,6 +113,7 @@ USE_TZ = True
 
 django_heroku.settings(locals())
 STATIC_URL = '/static/'
-
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
 CSRF_COOKIE_SECURE = True
