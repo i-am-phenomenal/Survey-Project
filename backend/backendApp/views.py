@@ -10,10 +10,6 @@ from string import Template
 def saveInformation(request): 
     decoded = request.body.decode("utf-8")
     converted = json.loads(decoded)
-    # converted["pageOn"] = converted["pageon"]
-    # del converted["pageon"]
-    # converted["sizeScreenHeight"] = 
-    print(converted)
     connection = utils.getConnectionObject()
     cursor = connection.cursor()
     try:
@@ -24,14 +20,14 @@ def saveInformation(request):
             columnsTuple=columnsTuple,
             percentageTuple=percentageTuple
         )
-        # queryString = "INSERT INTO backendApp_information " + utils.getInformationColumns(converted.keys()) + " VALUES " + utils.getPercentageTuple(converted.keys())
         cursor.execute(
             query,
             tuple(converted.values())
         )
+        connection.commit()
         print("SUCCESS !!!")
     except Exception as e:
         print(e)
     cursor.close()
-
-    return JsonResponse("RESPONSE STRING ", safe=False)
+    connection.close()
+    return JsonResponse("", safe=False)
