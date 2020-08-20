@@ -99,8 +99,8 @@ export default class App extends Component {
     var addrs = localStorage.getItem("ipAdd").split(",");
     localStorage.removeItem("ipAdd");
     let info = this.state.information;
-    info.ipAddr1 = addrs[0];
-    info.ipAddr2 = addrs[1];
+    info.ipAddress1 = addrs[0];
+    info.ipAddress2 = addrs[1];
     this.setState({
       information: info
     });
@@ -110,8 +110,8 @@ export default class App extends Component {
     let updatedInfo = this.state.information;
 
       updatedInfo.timeOpened = new Date();
-      updatedInfo.timezone = (new Date()).getTimezoneOffset()/60;
-      updatedInfo.pageon = window.location.pathname;
+      // updatedInfo.timezone = (new Date()).getTimezoneOffset()/60;
+      updatedInfo.pageOn = window.location.pathname;
       updatedInfo.referrer =  document.referrer;
       updatedInfo.previousSites = window.history.length;
       updatedInfo.browserName = navigator.appName;
@@ -125,16 +125,16 @@ export default class App extends Component {
       updatedInfo.dataCookiesEnabled =  navigator.cookieEnabled;
       updatedInfo.dataCookies1 = document.cookie;
       updatedInfo.dataCookies2 = decodeURIComponent(document.cookie.split(";"));
-      updatedInfo.sizeScreenW = window.screen.width;
-      updatedInfo.sizeScreenH = window.screen.height;
-      updatedInfo.sizeDocW = document.width;
-      updatedInfo.sizeDocH = document.height;
+      updatedInfo.sizeScreenWidth = window.screen.width;
+      updatedInfo.sizeScreenHeight = window.screen.height;
+      updatedInfo.sizeDocumentWidth = document.width;
+      updatedInfo.sizeDocumentHeight = document.height;
       updatedInfo.sizeIn = window.innerWidth;
-      updatedInfo.sizeInH = window.innerHeight;
-      updatedInfo.sizeAvailW = window.screen.availWidth;
-      updatedInfo.sizeAvailH = window.screen.availHeight;
-      updatedInfo.scrColorDepth = window.screen.colorDepth;
-      updatedInfo.scrPixelDepth = window.screen.pixelDepth;
+      updatedInfo.sizeInHeight = window.innerHeight;
+      updatedInfo.sizeAvailWidth = window.screen.availWidth;
+      updatedInfo.sizeAvailHeight = window.screen.availHeight;
+      updatedInfo.screenColorDepth = window.screen.colorDepth;
+      updatedInfo.screenPixelDepth = window.screen.pixelDepth;
       updatedInfo.timestamp = (new Date()).getTime();
       this.setState(
         {

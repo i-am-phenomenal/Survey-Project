@@ -63,12 +63,15 @@ def getConnectionObject():
     )
     return connection
 
-
+"""
+    For some reason, we need to enclose the column names inside dobule quotes at the time of query.
+"""
 def getInformationColumns(columns): 
-    print(len(columns))
     valString = "("
-    for columnName in columns: 
+    for columnName in columns:
+        valString = valString + f'"'
         valString = valString + columnName
+        valString = valString + f'"'
         valString = valString + ","
     if valString[len(valString) - 1] == ",": 
         valString = valString[0:len(valString)-1]
@@ -76,24 +79,12 @@ def getInformationColumns(columns):
     return valString
 
 
-def getPercentageTuple(): 
-    global COLUMNS
+def getPercentageTuple(columns): 
     valString = "("
-    for iter in range(len(COLUMNS)):
+    for iter in range(len(columns)):
         valString = valString + "%s"
         valString = valString + ","
     if valString[len(valString) - 1] == ",": 
         valString = valString[0:len(valString)-1]
         valString = valString + ")"
     return valString
-
-def getValueTuple(valDict): 
-    return tuple(valDict.keys())
-    # valString = "("
-    # for element in tuple(valDict.keys()):
-    #     valString = valString + element
-    #     valString = valString + ","
-    # if valString[len(valString) - 1] == ",": 
-    #     valString = valString[0:len(valString)-1]
-    #     valString = valString + ")"
-    # return valString
