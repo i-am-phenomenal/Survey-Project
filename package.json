@@ -1,17 +1,24 @@
 {
   "name": "surveyform",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "directories": {
+    "output": "public/"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "aframe": "^1.0.4",
+    "aframe-react": "^4.4.0",
     "axios": "^0.19.2",
     "jquery": "^3.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
-    "reactstrap": "^8.5.1"
+    "reactstrap": "^8.5.1",
+    "three": "^0.121.1",
+    "three-obj-mtl-loader": "^1.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,5 +40,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "babel-loader": "^8.1.0"
   }
 }
