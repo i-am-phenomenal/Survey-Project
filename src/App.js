@@ -233,12 +233,12 @@ export default class App extends Component {
       // manager.addHandler(/\.`dds`$/i, new DDSLoader()); // Lets try without this line
 
       new MTLLoader(manager)
-        .setPath("C:/Code/surveyProject/public/assets/")
+        .setPath("../build/assets/")
         .load("exportedKermitMesh.obj.mtl", function (materials) {
           materials.preload();
           new OBJLoader(manager)
             .setMaterials(materials)
-            .setPath("C:/Code/surveyProject/public/assets/")
+            .setPath("../build/assets/")
             .load(
               "exportedKermitMesh.obj",
               function (object) {
